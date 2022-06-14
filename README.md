@@ -1,1 +1,1 @@
-# My learning go journey
+# GO Learning Journey
