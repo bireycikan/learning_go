@@ -45,11 +45,35 @@ const (
 	Guest      = 50
 )
 
+func isAllowedAtAnyTime(role int) bool {
+	if role == 10 || role == 20 {
+		return true
+	} else {
+		return false
+	}
+}
+
+func isWeekDay(day int) bool {
+	if day <= 4 {
+		return true
+	} else {
+		return false
+	}
+}
+
+func isMondayWednesdayOrFriday(day int) bool {
+	if day == 0 || day == 2 || day == 4 {
+		return true
+	} else {
+		return false
+	}
+}
+
 func main() {
 
 	// The day and role. Change these to check if condition is working
-	today, role := Sunday, Contractor
-	accessCondition := role <= 20 || (role == 30 && today >= 5) || (role == 40 && today < 5) || (role == 50 && (today == 0 || today == 2 || today == 4))
+	today, role := Monday, Contractor
+	accessCondition := isAllowedAtAnyTime(role) || (role == Contractor && !isWeekDay(today)) || (role == Member && isWeekDay(today)) || (role == Guest && isMondayWednesdayOrFriday(today))
 
 	if accessCondition {
 		accessGranted()
