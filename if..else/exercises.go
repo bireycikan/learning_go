@@ -46,27 +46,15 @@ const (
 )
 
 func isAllowedAtAnyTime(role int) bool {
-	if role == 10 || role == 20 {
-		return true
-	} else {
-		return false
-	}
+	return role == 10 || role == 20
 }
 
 func isWeekDay(day int) bool {
-	if day <= 4 {
-		return true
-	} else {
-		return false
-	}
+	return day <= 4
 }
 
 func isMondayWednesdayOrFriday(day int) bool {
-	if day == 0 || day == 2 || day == 4 {
-		return true
-	} else {
-		return false
-	}
+	return day == 0 || day == 2 || day == 4
 }
 
 func main() {
