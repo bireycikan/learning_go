@@ -1,0 +1,1 @@
+hello from defer example text file
